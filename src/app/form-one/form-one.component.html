@@ -1,0 +1,48 @@
+  <h1>Form One</h1>
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <div class="form-row mt-3">
+      <div class="form-group col-md-6">
+        <label for="fn">First Name</label>
+        <input type="text" class="form-control" id="fn" placeholder="Pramod" name="firstName" formControlName="firstName">
+        <small *ngIf="!myForm.get('firstName').valid && myForm.get('firstName').touched"
+        class="form-text text-danger">First
+        First Name is required!</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="ln">Last Name</label>
+        <input type="text" class="form-control" id="ln" placeholder="Jadhav" name="lastName" formControlName="lastName">
+        <small *ngIf="!myForm.get('lastName').valid && myForm.get('lastName').touched"
+        class="form-text text-danger">First
+        Last Name is required!</small>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputState">How should we contact you</label>
+        <select id="inputState" class="form-control" aria-placeholder="choose one" name="contact" formControlName="contact" (change)="selectOpt($event)">
+          <option [disabled]="true">Choose option</option>
+          <option  *ngFor="let cont of contactForm" value="{{cont}}">{{cont}}</option>
+        </select>
+        <small *ngIf="!myForm.get('contact').valid && myForm.get('contact').touched"
+        class="form-text text-danger">
+        Contact is required!</small>
+      </div>
+      <div class="form-group col-md-6" *ngIf="currentSelectedContact ==='Phone'">
+        <label for="pn">phone number</label>
+        <input type="text" class="form-control" id="pn" placeholder="Phone number" name="phoneNumber" formControlName="phoneNumber">
+        <small *ngIf="!myForm.get('phoneNumber').valid && myForm.get('phoneNumber').touched"
+        class="form-text text-danger">First
+        Phone number is required!</small>
+      </div>
+      <div class="form-group col-md-6" *ngIf="currentSelectedContact ==='Email'">
+        <label for="emailId">Email</label>
+        <input type="email" class="form-control" id="emailId" placeholder="Email" name="email" formControlName="email">
+        <small *ngIf="!myForm.get('email').valid && myForm.get('email').touched"
+        class="form-text text-danger">First
+        Email is required!</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
