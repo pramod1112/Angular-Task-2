@@ -20,7 +20,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputState">How should we contact you</label>
-        <select id="inputState" class="form-control" aria-placeholder="choose one" name="contact" formControlName="contact" (click)="selectOpt($event)">
+        <select id="inputState" class="form-control" aria-placeholder="choose one" name="contact" formControlName="contact" (change)="selectOpt($event)">
           <option [disabled]="true">Choose option</option>
           <option  *ngFor="let cont of contactForm" value="{{cont}}">{{cont}}</option>
         </select>

@@ -24,7 +24,7 @@
             <label for="inputState" class="d-block">How should we contact you</label>
             <div class="form-check form-check-inline" *ngFor="let cont of contactForm">
                 <input class="form-check-input" type="radio" name="contact" id="{{cont}}" value="{{cont}}"
-                    formControlName="contact" (click)="selectOpt(cont)">
+                    formControlName="contact" (change)="selectOpt(cont)">
                 <label class="form-check-label" for="{{cont}}">{{cont}}</label>
             </div>
             <small *ngIf="!myForm.get('contact').valid && myForm.get('contact').touched"

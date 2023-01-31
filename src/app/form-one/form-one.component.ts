@@ -11,7 +11,7 @@ export class FormOneComponent implements OnInit {
   myForm : FormGroup | any;
   constructor() { }
   
-  showContact= false;
+  // showContact= false;
   contactForm = ['Phone','Email'];
   currentSelectedContact : string | any;
   
